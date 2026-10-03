@@ -1,75 +1,77 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  # Movie Ticket Booking System - Frontend
 
-Currently, two official plugins are available:
+**Coursework:** CMJD 114/115 - Front-End Development with React
+**Tech Stack:** React (TypeScript), React Router, Axios, Tailwind CSS, Vite, Spring Boot, MySQL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Overview
+This repository contains the full single-page React frontend application for the Movie Ticket Booking System. It interacts with a Spring Boot REST API and MySQL database to deliver user authentication, movie catalog browsing, interactive seat reservation, ticket booking, and booking management.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features Implemented
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Authentication Handling
+* Sign-In & Sign-Up Pages: Clean user authentication interfaces built with React and Tailwind CSS.
+* JWT Security: Secure token storage in localStorage with route guards (ProtectedRoute) to prevent unauthorized access.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 2. Movie Catalog Browsing
+* Dynamic Display: Renders available movies with genres, durations, and poster art.
+* Search & Filter Controls: Real-time search by movie title and dynamic genre filter dropdown.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 3. Booking & Seat Selection Interface
+* Show & Theatre Selection: Dynamic selection of showtimes, dates, and cinema halls.
+* Interactive Seat Grid: Selectable seat matrix updating total pricing in real time based on ticket counts.
+* Payment Summary: Direct breakdown of chosen seats, individual seat pricing, and grand total.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 4. Booking Management
+* Booking History: Detailed view of customer bookings (/bookings) displaying theatre, date, time, assigned seats, and total paid.
+* Cancellation Logic: Instant booking cancellation calling API endpoints with real-time UI updates.
 
-```
+---
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Setup & Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
+* Node.js (v18+)
+* npm or yarn
+* Running Spring Boot backend (http://localhost:8080)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Steps
+1. Clone the repository:
+git clone <YOUR_GITHUB_REPOSITORY_LINK>
+cd movie-booking-frontend
 
-```
+2. Install dependencies:
+npm install
+
+3. Run development server:
+npm run dev
+
+The application will run on http://localhost:5173.
+
+---
+
+## Folder Structure
+src/
+├── components/ # Reusable UI elements
+├── pages/ # Route views (Login, Register, MovieList, BookingHistory)
+├── services/ # Axios instance and API call handlers
+├── App.tsx # React Router configuration & Protected Routes
+└── main.tsx # React entry point
+
+---
+
+## Future Expansion - Student Proposal
+
+### Enhancement 1: Interactive Theatre Screen & Seat Layout
+* Description: Transition from the current matrix grid to a full 2D interactive canvas or SVG mapping of actual cinema hall screen angles, seat tiers (VIP, Standard, Recliner), and real-time occupied seat statuses.
+* UX Impact: Provides users with an accurate visual representation of the auditorium screen orientation and view distances, preventing double-bookings and drastically improving confidence during seat selection.
+
+### Enhancement 2: Online Payment Gateway Integration
+* Description: Integrate third-party payment gateways (e.g., Stripe, PayPal, or PayHere) to handle live online credit/debit card transactions directly within the booking flow.
+* UX Impact: Converts ticket reservations into immediate, verified purchases with instant automated email receipts, QR code e-tickets, and seamless refund processing upon cancellation.
+
+
