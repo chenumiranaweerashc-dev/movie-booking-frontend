@@ -41,7 +41,7 @@ This repository contains the full single-page React frontend application for the
 
 ### Steps
 1. Clone the repository:
-git clone <YOUR_GITHUB_REPOSITORY_LINK>
+git clone[ https://github.com/chenumiranaweerashc-dev/movie-booking-frontend.git]
 cd movie-booking-frontend
 
 2. Install dependencies:
@@ -66,11 +66,11 @@ src/
 
 ## Future Expansion - Student Proposal
 
-### Enhancement 1: Interactive Theatre Screen & Seat Layout
+###  1: Interactive Theatre Screen & Seat Layout
 * Description: Transition from the current matrix grid to a full 2D interactive canvas or SVG mapping of actual cinema hall screen angles, seat tiers (VIP, Standard, Recliner), and real-time occupied seat statuses.
 * UX Impact: Provides users with an accurate visual representation of the auditorium screen orientation and view distances, preventing double-bookings and drastically improving confidence during seat selection.
 
-### Enhancement 2: Online Payment Gateway Integration
+###  2: Online Payment Gateway Integration
 * Description: Integrate third-party payment gateways (e.g., Stripe, PayPal, or PayHere) to handle live online credit/debit card transactions directly within the booking flow.
 * UX Impact: Converts ticket reservations into immediate, verified purchases with instant automated email receipts, QR code e-tickets, and seamless refund processing upon cancellation.
 
